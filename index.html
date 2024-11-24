@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación y Comentarios</title>
+    <style>
+        /* Reseteo de márgenes y padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fondo global de la página */
+        body {
+            background-color: #f4f4f4; /* Fondo suave */
+            font-family: Arial, sans-serif; /* Fuente legible */
+            color: #333; /* Color de texto más suave */
+            padding: 20px;
+        }
+
+        /* Botón de registro */
+        .registro {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none; /* Sin subrayado */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .registro:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para el div de "publicación" */
+        .publicacion {
+            background-color: #555; /* Color gris oscuro */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .publicacion h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .publicacion img {
+            width: 100%;
+            max-width: 200px; /* Limitar el tamaño de la imagen */
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Estilo para la sección de comentarios */
+        .comentarios {
+            background-color: #ddd; /* Color gris claro */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Ocultar por defecto */
+        }
+
+        .comentarios h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* Caja de comentario */
+        .comentarios div {
+            background-color: #f2f2f2; /* Gris más claro */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+
+        .comentarios h3 {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Estilo para los inputs y el formulario */
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Botón para mostrar el div de comentarios */
+        .mostrar-comentarios {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .mostrar-comentarios:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Botón de registro -->
+    <a href="log.php" class="registro">Registrarse</a>
+
+    <!-- Sección de publicación -->
+    <div class="publicacion">
+        <h1>Publicación</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB17PY8lmj6cZ7nDLuPc852gdgtwNl6iu_ng&s" alt="Imagen de publicación">
+    </div>
+
+    <!-- Botón para mostrar los comentarios -->
+    <button class="mostrar-comentarios" onclick="mostrarComentarios()">Comentar</button>
+
+    <!-- Sección de comentarios -->
+    <div class="comentarios">
+        <h1>Comentarios</h1>
+        <div>
+            <h3>Deja tu comentario</h3>
+            <form method="POST" action="publicar_comentario.php">
+                <input type="text" name="nombre_apellido" placeholder="Tu nombre y apellido" required>
+                <textarea name="comentario" placeholder="Escribe tu comentario..." required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar el div de comentarios
+        function mostrarComentarios() {
+            // Seleccionamos el div de comentarios
+            var comentariosDiv = document.querySelector('.comentarios');
+            // Cambiamos el display de 'none' a 'block' para hacerlo visible
+            comentariosDiv.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
